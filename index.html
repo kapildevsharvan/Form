@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="task 7/style.css">
+    <style>
+        body{
+         background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Online Job Registration Portal</h1>
+    <h4>Register yourself to get new job updates</h4>
+    <hr>
+    <br>
+    <form  name="google-sheet" action="" method="POST">
+
+        <table align="center">
+            <tr>
+                <td class="aim">Full Name : </td>
+                <td><input type="text" name="First_name" required placeholder="FirstName"></td>
+                <td><input type="text" name="Last_name" required placeholder="LastName"></td>
+            </tr>
+            
+            <tr>
+                <td class="aim">Address : </td>
+                <td colspan="2"><input  name="Addressl1"type="text" size="70px" required placeholder="Street Address"></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td colspan="2"><input type="text" name="Addressl2" size="70px" required placeholder="Street Address Line 2"></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="text" size="18px" name="City" required placeholder="City"></td>
+                <td><input type="text" size="32" name="State" required placeholder="State"></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="text" name="Pin" required placeholder="Pin code" size="15px"></td>
+                <td>
+                    <select name="Country" required>
+                        <option value="Id" selected>Please Select</option>
+                        <option value="Ind">India</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+
+            <tr>
+                <td class="aim">Phone Number :</td>
+                <td> <input type="text" size="4px" required maxlength="3"> - <input type="text" name="P_num" required maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+
+            <tr>
+                <td class="aim">Mobile :</td>
+                <td><input type="text" name="Mob_no" size="25" required maxlength="10"></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td class="aim">E-mail :</td>
+                <td><input name="email" type="email" placeholder="ex.xxpkxxx@example.com" size="30" required></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td class="aim">Areas Of Interest :</td>
+                <td>
+                    <input type="checkbox"> Account Manager
+                </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="checkbox"> Administrative</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="checkbox"> Human Resources</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="checkbox"> Sale</td>
+            </tr>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="checkbox"> Information Technology</td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td class="aim">Desired Nature of Job :</td>
+                <td> <input type="radio" name="tg"> Full Time</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><input type="radio" name="tg"> Part Time</td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+
+            <tr>
+                <td class="aim">Skill Level :</td>
+                <td>
+                    <select name="">
+                        <option value="UG">Undergraduate</option>
+                        <option value="G">Graduate</option>
+                        <option value="PG">Post-graduate and Diploma</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td class="aim">Cover Letter : <br><br><br></td>
+                <td colspan="2"><textarea maxlength="125"></textarea></td>
+            </tr>
+            <tr>
+                <td class="btm"></td>
+            </tr>
+            <tr>
+                <td class="aim">Resume</td>
+                <td> <input type="file" name="CV" class="custom-file-input"></td>
+            </tr>
+
+        </table>
+        <div>
+            <input type="submit" value="Submit Form">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <hr id="bottom">
+    <script type="text/javascript">
+        // const scriptURL = 'https://script.google.com/macros/s/AKfycbyp9P0lvz_PgFfHg9G7yfteUHdBxwGzzlRYBxGyC8e6UI_JPtri07bvXM0UZ8quA8pxKA/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx6FpbBnhR8tZuVn8HqaceYc--juup9aqPuFytmjE3Z0aT0AnN4TGHHi01C8Wq7dvZR-w/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
